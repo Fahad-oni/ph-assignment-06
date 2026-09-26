@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { FiClock, FiStar, FiCheckCircle } from 'react-icons/fi';
 import { IoFlameOutline } from 'react-icons/io5';
 import { IWorkout } from '../../types/workout';
+import Link from 'next/link';
 
 
 interface IWorkoutRowProps {
@@ -59,9 +60,11 @@ const WorkoutRow = ({
 
       {/* Right Side */}
       <div className="flex items-center gap-3">
-        <button className="rounded-md border border-[#30343c] px-4 py-2 text-[11px] font-bold text-gray-200 hover:bg-[#1d2027]">
-          View Details
-        </button>
+        <Link href={`/workouts/${workout.id}`}>
+          <button className="rounded-md border border-[#30343c] px-4 py-2 text-[11px] font-bold text-gray-200 hover:bg-[#1d2027]">
+            View Details
+          </button>
+        </Link>
 
         {showDoneButton && (
           <button
