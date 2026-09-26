@@ -4,6 +4,7 @@ import { FiClock, FiStar, FiCheckCircle } from 'react-icons/fi';
 import { IoFlameOutline } from 'react-icons/io5';
 import { IWorkout } from '../../types/workout';
 import Link from 'next/link';
+import { toast } from 'react-toastify';
 
 
 interface IWorkoutRowProps {
@@ -19,6 +20,25 @@ const WorkoutRow = ({
   removeWorkout,
   markAsDone,
 }: IWorkoutRowProps) => {
+
+  const handleClick = () => {
+    markAsDone(); 
+    toast.success(`Workout logged - Nice work`, {
+        position: 'top-right',
+        autoClose: 2000,
+        theme: 'dark',
+    });
+  }
+
+  const handleRemove = () => {
+    removeWorkout();
+
+    toast.success(`Workout removed.`, {
+      position: 'top-right',
+      autoClose: 2000,
+      theme: 'dark',
+    });
+  }
   return (
     <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[#252932] px-6 py-5 last:border-b-0">
       {/* Left Side */}
@@ -68,7 +88,7 @@ const WorkoutRow = ({
 
         {showDoneButton && (
           <button
-            onClick={markAsDone}
+            onClick={()=>handleClick()}
             className="flex items-center gap-1 rounded-md bg-[#b6ff00] px-4 py-2 text-[11px] font-bold text-black hover:bg-[#a8ec00]"
           >
             <FiCheckCircle size={12} />
@@ -77,7 +97,7 @@ const WorkoutRow = ({
         )}
 
         <button
-          onClick={removeWorkout}
+          onClick={()=>handleRemove()}
           className="px-2 text-gray-500 hover:text-white"
         >
           ✕

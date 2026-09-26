@@ -6,6 +6,7 @@ import StatsCard from '@/components/StatsCard';
 import PlanTabs from '@/components/PlanTabs';
 import SortDropdown from '@/components/SortDropdown';
 import WorkoutRow from '@/components/WorkoutRowCard';
+import { toast } from 'react-toastify';
 
 const MyPlanPage = () => {
   const { planned, setPlanned, saved, setSaved } = useContext(
