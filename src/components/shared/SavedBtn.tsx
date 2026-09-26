@@ -1,8 +1,9 @@
 'use client';
 import React, { useContext } from 'react';
-import { FiBookmark,} from 'react-icons/fi';
+import { FiBookmark } from 'react-icons/fi';
 import { IWorkout } from '../../../types/workout';
 import { WorkoutContext } from '@/context/WorkoutContext';
+import { toast } from 'react-toastify';
 
 const SavedBtn = ({ workout }: { workout: IWorkout }) => {
   const { saved, setSaved } = useContext(WorkoutContext) as {
@@ -12,6 +13,11 @@ const SavedBtn = ({ workout }: { workout: IWorkout }) => {
 
   const handleSavedBtn = (workout: IWorkout) => {
     setSaved([...saved, workout]);
+    toast.success(`Saved for later`, {
+      position: 'top-right',
+      autoClose: 2000,
+      theme:'dark'
+    });
   };
   return (
     <div>

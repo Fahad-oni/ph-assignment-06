@@ -3,6 +3,7 @@ import React, { useContext } from 'react';
 import { FiCalendar } from 'react-icons/fi';
 import { IWorkout } from '../../../types/workout';
 import { WorkoutContext } from '@/context/WorkoutContext';
+import { toast } from 'react-toastify';
 
 const PlannedBtn = ({ workout }: { workout: IWorkout }) => {
   const { planned, setPlanned } = useContext(WorkoutContext) as {
@@ -12,6 +13,12 @@ const PlannedBtn = ({ workout }: { workout: IWorkout }) => {
 
   const handlePlannedBtn = (workout: IWorkout) => {
     setPlanned([...planned, workout]);
+
+    toast.success(`Added to today's plan`, {
+          position: 'top-right',
+          autoClose: 2000,
+          theme:'dark'
+        });
   };
   return (
     <div>
