@@ -1,4 +1,5 @@
 'use client';
+
 import React, { useContext } from 'react';
 import { FiCalendar } from 'react-icons/fi';
 import { IWorkout } from '../../../types/workout';
@@ -9,27 +10,40 @@ const PlannedBtn = ({ workout }: { workout: IWorkout }) => {
   const { planned, setPlanned } = useContext(WorkoutContext) as {
     planned: IWorkout[];
     setPlanned: React.Dispatch<React.SetStateAction<IWorkout[]>>;
+    
   };
 
-  const handlePlannedBtn = (workout: IWorkout) => {
-    setPlanned([...planned, workout]);
+  const isPlanned =
+    planned.some(item => item.id === workout.id)
 
-    toast.success(`Added to today's plan`, {
-          position: 'top-right',
-          autoClose: 2000,
-          theme:'dark'
-        });
+  const handlePlannedBtn = () => {
+    if (isPlanned) {
+      toast.info("This workout is already in today's plan", {
+        position: 'top-right',
+        autoClose: 2000,
+        theme: 'dark',
+      });
+
+      return;
+    }
+
+    setPlanned(current => [...current, workout]);
+
+    toast.success("Added to today's plan", {
+      position: 'top-right',
+      autoClose: 2000,
+      theme: 'dark',
+    });
   };
+
   return (
-    <div>
-      <button
-        onClick={() => handlePlannedBtn(workout)}
-        className="flex items-center gap-2 rounded-md bg-[#b6ff00] px-4 py-2 text-[10px] font-bold text-black transition hover:bg-[#a8ec00] cursor-pointer"
-      >
-        <FiCalendar size={11} />
-        Add to today&apos;s plan
-      </button>
-    </div>
+    <button
+      onClick={handlePlannedBtn}
+      className="flex cursor-pointer items-center gap-2 rounded-md bg-[#b6ff00] px-4 py-2 text-[10px] font-bold text-black transition hover:bg-[#a8ec00] disabled:cursor-not-allowed disabled:opacity-50"
+    >
+      <FiCalendar size={11} />
+      {isPlanned ? "Already in today's plan" : "Add to today's plan"}
+    </button>
   );
 };
 

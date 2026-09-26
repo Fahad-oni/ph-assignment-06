@@ -1,9 +1,11 @@
 'use client';
 import Link from 'next/link';
 import React from 'react';
-import logo from '../../assets/logo.png'
+import logo from '../../assets/logo.png';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
+import NavPlanBtn from '../NavPlanBtn';
+import NavSaveBtn from '../NavSaveBtn';
 const Navbar = () => {
   const pathname = usePathname();
 
@@ -99,25 +101,9 @@ const Navbar = () => {
         </div>
         <div className="navbar-end">
           <div className="flex items-center gap-4">
-            <Link
-              href="/plan"
-              className="flex items-center gap-2 text-[#a5a6aa] hover:text-white"
-            >
-              <span>Plan</span>
-              <span className="flex h-4 min-w-4 items-center justify-center rounded-full bg-[#b7ff00] px-1 text-[9px] font-bold text-black">
-                {0}
-              </span>
-            </Link>
+            <NavPlanBtn />
 
-            <Link
-              href="/saved"
-              className="flex items-center gap-2 text-[#777980] hover:text-white"
-            >
-              <span>Saved</span>
-              <span className="flex h-4 min-w-4 items-center justify-center rounded-full border border-[#303238] px-1 text-[9px]">
-                0
-              </span>
-            </Link>
+            <NavSaveBtn />
           </div>
         </div>
       </div>
