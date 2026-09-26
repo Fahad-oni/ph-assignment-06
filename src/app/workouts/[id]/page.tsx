@@ -147,12 +147,12 @@ const WorkoutDetailsPage = async ({ params }: IWorkoutDetailsPageProps) => {
           </div>
 
           <div className="mt-6 flex flex-wrap gap-3">
-            <button className="flex items-center gap-2 rounded-md bg-[#b6ff00] px-4 py-2 text-[10px] font-bold text-black transition hover:bg-[#a8ec00]">
+            <button className="flex items-center gap-2 rounded-md bg-[#b6ff00] px-4 py-2 text-[10px] font-bold text-black transition hover:bg-[#a8ec00] cursor-pointer">
               <FiCalendar size={11} />
               Add to today&apos;s plan
             </button>
 
-            <button className="flex items-center gap-2 rounded-md border border-[#30343c] px-4 py-2 text-[10px] text-gray-300 transition hover:bg-[#171a20]">
+            <button className="flex items-center gap-2 rounded-md border border-[#30343c] px-4 py-2 text-[10px] text-gray-300 transition hover:bg-[#171a20] cursor-pointer">
               <FiBookmark size={10} />
               Save for later
             </button>
