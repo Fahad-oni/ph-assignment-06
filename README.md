@@ -4,8 +4,6 @@ FitLog is a workout library and daily-plan app. Browse exercises, view workout
 details, add workouts to today's plan, save workouts for later, and review or
 sort your lists from the My Plan page.
 
-
-
 ## Project Structure
 
 ```text
@@ -33,3 +31,13 @@ to a database or browser storage and will be reset after a full page refresh.
 - React and TypeScript
 - Tailwind CSS and DaisyUI
 - React Icons and React Toastify
+
+## Key Features
+
+1. **Browse the workout library** to explore available exercises.
+2. **View workout details**, including target muscle groups, equipment,
+   difficulty, sets, reps, duration, calories, rating, and instructions.
+3. **Build a daily workout plan** by adding exercises from their detail pages.
+4. **Save workouts for later** and access them separately from planned workouts.
+5. **Manage your plan and saved list** by sorting workouts, removing items, and
+   tracking totals for exercise count, duration, and calories.
