@@ -1,7 +1,8 @@
+'use client';
 import React, { createContext, useState } from 'react';
 import { IWorkout } from '../../types/workout';
 
-const WorkoutContext = createContext({});
+export const WorkoutContext = createContext({});
 
 const WorkoutProvider = ({ children }: { children: React.ReactNode }) => {
   const [planned, setPlanned] = useState<IWorkout[]>([]);
@@ -13,7 +14,11 @@ const WorkoutProvider = ({ children }: { children: React.ReactNode }) => {
     saved,
     setSaved,
   };
-  return <WorkoutContext.Provider value={sharedData}>{children }</WorkoutContext.Provider>;
+  return (
+    <WorkoutContext.Provider value={sharedData}>
+      {children}
+    </WorkoutContext.Provider>
+  );
 };
 
 export default WorkoutProvider;
