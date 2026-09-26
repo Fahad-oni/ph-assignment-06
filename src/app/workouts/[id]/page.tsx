@@ -4,7 +4,7 @@ import { FiCheckCircle, FiClock, FiStar } from 'react-icons/fi';
 import { IoFlameOutline } from 'react-icons/io5';
 import Image from 'next/image';
 import PlannedBtn from '@/components/shared/PlannedBtn';
-import SavedBtn from '@/components/shared/PlannedBtn';
+import SavedBtn from '@/components/shared/SavedBtn';
 
 interface IWorkoutDetailsPageProps {
   params: Promise<{ id: string }>;

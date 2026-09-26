@@ -1,6 +1,6 @@
 'use client';
 import React, { useContext } from 'react';
-import { FiBookmark, FiCalendar } from 'react-icons/fi';
+import { FiBookmark,} from 'react-icons/fi';
 import { IWorkout } from '../../../types/workout';
 import { WorkoutContext } from '@/context/WorkoutContext';
 
