@@ -1,5 +1,5 @@
 import Banner from '@/components/Banner';
-import WorkoutLibrary from '@/components/WorkoutLibrary';
+import WorkoutLibrary from '@/app/workouts/page';
 
 import React from 'react';
 
@@ -7,7 +7,7 @@ const page = () => {
   return (
     <div>
       <Banner />
-      <WorkoutLibrary/>
+      <WorkoutLibrary />
     </div>
   );
 };
