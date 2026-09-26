@@ -1,19 +1,12 @@
-import React, { useContext } from "react";
-import { IWorkout } from "../../types/workout";
-import { WorkoutContext } from "@/context/WorkoutContext";
+import { IWorkout } from '../../types/workout';
 
-const StatsCard = () => {
-
-  const { planned } = useContext(WorkoutContext) as {
-    planned: IWorkout[];
-  };
-  const data = planned;
-  const totalExercises = data.length;
-  const totalMinutes = data.reduce(
+const StatsCard = ({ workouts }: { workouts: IWorkout[] }) => {
+  const totalExercises = workouts.length;
+  const totalMinutes = workouts.reduce(
     (sum, w) => sum + Number(w.duration || 0),
     0,
   );
-  const totalCalories = data.reduce(
+  const totalCalories = workouts.reduce(
     (sum, w) => sum + Number(w.caloriesBurned || 0),
     0,
   );

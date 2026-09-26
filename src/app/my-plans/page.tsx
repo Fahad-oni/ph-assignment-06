@@ -7,7 +7,6 @@ import PlanTabs from '@/components/PlanTabs';
 import SortDropdown from '@/components/SortDropdown';
 import WorkoutRow from '@/components/WorkoutRowCard';
 
-
 const MyPlanPage = () => {
   const { planned, setPlanned, saved, setSaved } = useContext(
     WorkoutContext,
@@ -47,7 +46,6 @@ const MyPlanPage = () => {
     );
   }
 
-
   const removeWorkout = (id: number) => {
     if (activeTab === 'plan') {
       setPlanned?.(planned.filter((workout: IWorkout) => workout.id !== id));
@@ -68,7 +66,7 @@ const MyPlanPage = () => {
         Cap of five lifts for today. Finish them, then load more.
       </p>
 
-      <StatsCard />
+      <StatsCard workouts={workouts} />
 
       <div className="mt-8 flex flex-wrap items-center justify-between gap-4">
         <PlanTabs activeTab={activeTab} setActiveTab={setActiveTab} />
