@@ -6,6 +6,7 @@ import StatsCard from '@/components/StatsCard';
 import PlanTabs from '@/components/PlanTabs';
 import SortDropdown from '@/components/SortDropdown';
 import WorkoutRow from '@/components/WorkoutRowCard';
+import Link from 'next/link';
 
 const MyPlanPage = () => {
   const { planned, setPlanned, saved, setSaved } = useContext(
@@ -75,11 +76,27 @@ const MyPlanPage = () => {
 
       <div className="mt-6 overflow-hidden rounded-xl border border-[#252932] bg-[#15171c]">
         {workouts.length === 0 ? (
-          <p className="px-6 py-10 text-center text-sm text-gray-500">
-            {activeTab === 'plan'
-              ? 'No workouts planned yet.'
-              : 'No saved workouts yet.'}
-          </p>
+          <div className="px-6 py-10 text-center text-sm text-gray-500">
+            {activeTab === 'plan' ? (
+              <div className="flex flex-col gap-4">
+                <p>No workouts planned yet.</p>
+                <Link href="/workouts">
+                  <button className="rounded-md border border-[#02c14e] px-4 py-2 text-[11px] font-bold text-gray-200 hover:bg-[#137f00]">
+                    Go to Libraries
+                  </button>
+                </Link>
+              </div>
+            ) : (
+              <div className="flex flex-col gap-4">
+                <p>No saved workouts yet.</p>
+                <Link href="/workouts">
+                  <button className="rounded-md border border-[#02c14e] px-4 py-2 text-[11px] font-bold text-gray-200 hover:bg-[#137f00]">
+                    Go to Libraries
+                  </button>
+                </Link>
+              </div>
+            )}
+          </div>
         ) : (
           workouts.map(workout => (
             <WorkoutRow
